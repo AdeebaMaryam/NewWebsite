@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(45, 93%, 58%);
+  --primary-foreground: hsl(26, 83%, 14%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* OUAlumniHub specific colors */
+  --ou-amber: hsl(45, 93%, 58%);
+  --ou-gold: hsl(43, 89%, 49%);
+  --ou-blue: hsl(217, 91%, 60%);
+  --ou-navy: hsl(230, 81%, 56%);
+  --ou-maroon: hsl(0, 75%, 25%);
+  --heritage-gold: hsl(48, 94%, 68%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(45, 93%, 58%);
+  --primary-foreground: hsl(26, 83%, 14%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .ou-gradient {
+    @apply bg-gradient-to-r from-amber-500 to-blue-600;
+  }
+
+  .ou-gradient-text {
+    @apply bg-gradient-to-r from-amber-500 to-blue-600 bg-clip-text text-transparent;
+  }
+
+  .heritage-pattern {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><rect width='60' height='60' fill='%23F59E0B' fill-opacity='0.05'/><circle cx='30' cy='30' r='20' fill='none' stroke='%232563EB' stroke-width='1' stroke-opacity='0.1'/><circle cx='30' cy='30' r='10' fill='none' stroke='%232563EB' stroke-width='0.5' stroke-opacity='0.1'/></svg>");
+    background-repeat: repeat;
+  }
+
+  .chat-bubble {
+    @apply max-w-xs lg:max-w-md px-4 py-2 rounded-2xl break-words;
+  }
+
+  .chat-bubble-sent {
+    @apply bg-ou-blue text-white ml-auto rounded-br-sm;
+  }
+
+  .chat-bubble-received {
+    @apply bg-gray-100 text-gray-900 mr-auto rounded-bl-sm;
+  }
+
+  .typing-indicator {
+    @apply flex space-x-1;
+  }
+
+  .typing-dot {
+    @apply w-2 h-2 bg-gray-400 rounded-full animate-pulse;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  .glassmorphism {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .hero-text {
+    @apply text-4xl md:text-6xl font-bold leading-tight;
+  }
+
+  .stats-card {
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-yellow-400/20 card-hover;
+  }
+
+  .nav-link {
+    @apply text-gray-700 hover:text-amber-500 transition-colors font-medium flex items-center;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-amber-500 to-blue-600 hover:from-yellow-500 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-ou-blue text-ou-blue hover:bg-ou-blue hover:text-white font-semibold py-3 px-6 rounded-xl transition-all;
+  }
+
+  .cultural-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(245, 158, 11, 0.15) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(203 213 225) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgb(203 213 225);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(148 163 184);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80% {
+    transform: translateY(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 2s infinite;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .hero-text {
+    @apply text-3xl md:text-4xl;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
