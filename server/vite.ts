@@ -22,7 +22,11 @@ export function log(message: string, source = "express") {
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
     middlewareMode: true,
-    hmr: { server },
+    hmr: {
+      protocol: "ws", // or 'wss' if you're using HTTPS
+      host: "localhost", // your host (or use Replit domain if on Replit)
+      port: 3000, // your server port (match with app.listen)
+    },
     allowedHosts: true,
   };
 
